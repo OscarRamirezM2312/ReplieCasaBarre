@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paquetes | Replie Casa Barre</title>
+
+<style>
+:root{
+    --tinto:#800020;
+    --tinto-oscuro:#5e0017;
+    --crema:#f7f3f1;
+    --gris:#e9ecef;
+    --texto:#2d2d2d;
+    --blanco:#ffffff;
+    --sombra:0 10px 30px rgba(0,0,0,0.08);
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:var(--crema);
+    color:var(--texto);
+    padding-top:110px;
+}
+
+a{
+    text-decoration:none;
+}
+
+/* HEADER */
+
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(10px);
+    box-shadow:0 2px 12px rgba(0,0,0,0.05);
+}
+
+.header-inner{
+    max-width:1200px;
+    margin:0 auto;
+    padding:16px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    width:180px;
+}
+
+.menu-container{
+    position:relative;
+}
+
+.menu-btn{
+    border:none;
+    background:var(--tinto);
+    color:var(--blanco);
+    padding:12px 18px;
+    border-radius:999px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:bold;
+    transition:0.2s;
+}
+
+.menu-btn:hover{
+    background:var(--tinto-oscuro);
+}
+
+.menu{
+    display:none;
+    position:absolute;
+    top:52px;
+    right:0;
+    width:220px;
+    background:var(--blanco);
+    border-radius:18px;
+    box-shadow:var(--sombra);
+    overflow:hidden;
+}
+
+.menu a{
+    display:block;
+    padding:14px 16px;
+    color:var(--texto);
+    font-size:15px;
+}
+
+.menu a:hover{
+    background:#f6f6f6;
+}
+
+/* LAYOUT */
+
+.container{
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 20px 40px;
+}
+
+/* HERO PAQUETES */
+
+.topo{
+    text-align:center;
+    background:var(--blanco);
+    border-radius:32px;
+    box-shadow:var(--sombra);
+    padding:42px 28px;
+    margin-bottom:28px;
+}
+
+.topo-tag{
+    display:inline-block;
+    background:#f3e6ea;
+    color:var(--tinto);
+    padding:8px 14px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:14px;
+}
+
+.topo h1{
+    margin:0 0 12px;
+    color:var(--tinto);
+    font-size:44px;
+}
+
+.topo p{
+    margin:0;
+    color:#666;
+    font-size:17px;
+    line-height:1.6;
+}
+
+/* GRID */
+
+.paquetes-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:26px;
+}
+
+/* TARJETAS */
+
+.paquete{
+    background:var(--gris);
+    border-radius:26px;
+    padding:28px;
+    box-shadow:0 8px 18px rgba(0,0,0,0.04);
+    display:flex;
+    flex-direction:column;
+    min-height:100%;
+}
+
+.paquete h3{
+    margin:0 0 12px;
+    font-size:22px;
+    font-weight:bold;
+    color:var(--texto);
+}
+
+.precio{
+    font-size:34px;
+    color:var(--tinto);
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+.lista{
+    margin:0 0 24px;
+    padding-left:18px;
+    line-height:1.6;
+    flex-grow:1;
+}
+
+.lista li{
+    margin-bottom:10px;
+}
+
+.boton{
+    display:inline-block;
+    padding:14px 28px;
+    background:var(--tinto);
+    color:var(--blanco);
+    border-radius:999px;
+    font-size:16px;
+    font-weight:bold;
+    transition:0.2s;
+    text-align:center;
+}
+
+.boton:hover{
+    background:var(--tinto-oscuro);
+}
+
+/* CTA FINAL */
+
+.cta-final{
+    margin-top:34px;
+    background:var(--blanco);
+    border-radius:32px;
+    box-shadow:var(--sombra);
+    padding:36px 24px;
+    text-align:center;
+}
+
+.cta-final h2{
+    color:var(--tinto);
+    margin:0 0 12px;
+    font-size:30px;
+}
+
+.cta-final p{
+    margin:0 0 22px;
+    color:#666;
+    line-height:1.6;
+}
+
+.cta-actions{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.btn-principal,
+.btn-secundario{
+    display:inline-block;
+    padding:15px 24px;
+    border-radius:999px;
+    font-size:15px;
+    font-weight:bold;
+    transition:0.2s;
+    text-align:center;
+}
+
+.btn-principal{
+    background:var(--tinto);
+    color:var(--blanco);
+}
+
+.btn-principal:hover{
+    background:var(--tinto-oscuro);
+}
+
+.btn-secundario{
+    background:#f3e6ea;
+    color:var(--tinto);
+}
+
+.btn-secundario:hover{
+    background:#ead7dd;
+}
+
+/* FOOTER */
+
+.creditos{
+    text-align:center;
+    color:var(--tinto);
+    font-size:11px;
+    margin:28px 0 10px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 980px){
+    .paquetes-grid{
+        grid-template-columns:repeat(2, 1fr);
+    }
+
+    .topo h1{
+        font-size:38px;
+    }
+}
+
+@media (max-width: 640px){
+    body{
+        padding-top:95px;
+    }
+
+    .header-inner{
+        padding:14px 16px;
+    }
+
+    .logo{
+        width:145px;
+    }
+
+    .menu-btn{
+        padding:11px 15px;
+        font-size:14px;
+    }
+
+    .topo{
+        padding:28px 20px;
+        border-radius:24px;
+    }
+
+    .topo h1{
+        font-size:32px;
+    }
+
+    .topo p{
+        font-size:16px;
+    }
+
+    .paquetes-grid{
+        grid-template-columns:1fr;
+        gap:18px;
+    }
+
+    .paquete{
+        border-radius:22px;
+        padding:22px;
+    }
+
+    .precio{
+        font-size:30px;
+    }
+
+    .cta-final{
+        border-radius:24px;
+        padding:28px 20px;
+    }
+
+    .cta-actions{
+        flex-direction:column;
+    }
+
+    .btn-principal,
+    .btn-secundario{
+        width:100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="header-inner">
+        <img src="replie logo.png" class="logo" alt="Replie Casa Barre">
+
+        <div class="menu-container">
+            <button class="menu-btn" onclick="toggleMenu()">Menú</button>
+
+            <nav class="menu" id="menu">
+                <a href="index.html">Inicio</a>
+                <a href="https://nessty.mx/@replie-casa-barre/calle-independencia-387?day=2026-03-06" target="_blank">Clases</a>
+                <a href="paquetes.html">Paquetes</a>
+                <a href="https://api.whatsapp.com/send?phone=5213310968126&text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20las%20clases" target="_blank">Contacto</a>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="topo">
+        <div class="topo-tag">PAQUETES REPLIE</div>
+        <h1>Encuentra tu ritmo ideal.</h1>
+        <p>
+            Elige la opción que mejor se adapte a tu energía, constancia y objetivos.
+        </p>
+    </section>
+
+    <section class="paquetes-grid">
+
+        <div class="paquete">
+            <h3>FIRST PULSE</h3>
+            <div class="precio">$170</div>
+            <ul class="lista">
+                <li>1 sesión</li>
+                <li>Válido en Barre, BARRE SLOW y Replie Galentine´s Love</li>
+                <li>Vigencia 7 días</li>
+            </ul>
+            <a class="boton" href="https://nessty.mx/checkout/69ab19054c511074a7d92f8d" target="_blank">Comprar</a>
+        </div>
+
+        <div class="paquete">
+            <h3>DROP IN ENERGY</h3>
+            <div class="precio">$250</div>
+            <ul class="lista">
+                <li>1 sesión</li>
+                <li>Válido en Barre, BARRE SLOW y Replie Galentine´s Love</li>
+                <li>Vigencia 15 días</li>
+            </ul>
+            <a class="boton" href="https://nessty.mx/checkout/69ab19374c511074a7d94349" target="_blank">Comprar</a>
+        </div>
+
+        <div class="paquete">
+            <h3>SOFT START</h3>
+            <div class="precio">$880</div>
+            <ul class="lista">
+                <li>4 sesiones</li>
+                <li>Válido en Barre, BARRE SLOW y Replie Galentine´s Love</li>
+                <li>Vigencia 30 días</li>
+            </ul>
+            <a class="boton" href="https://nessty.mx/checkout/69ab194a4c511074a7d9482b" target="_blank">Comprar</a>
+        </div>
+
+        <div class="paquete">
+            <h3>BARRE BOOST</h3>
+            <div class="precio">$1,400</div>
+            <ul class="lista">
+                <li>8 sesiones</li>
+                <li>Válido en Barre, BARRE SLOW y Replie Galentine´s Love</li>
+                <li>Vigencia 30 días</li>
+            </ul>
+            <a class="boton" href="https://nessty.mx/checkout/69ab195b4c511074a7d94c73" target="_blank">Comprar</a>
+        </div>
+
+        <div class="paquete">
+            <h3>EMPOWER BARRE</h3>
+            <div class="precio">$1,950</div>
+            <ul class="lista">
+                <li>12 sesiones</li>
+                <li>Válido en Barre, BARRE SLOW y Replie Galentine´s Love</li>
+                <li>Vigencia 30 días</li>
+            </ul>
+            <a class="boton" href="https://nessty.mx/checkout/69ab196d4c511074a7d951d3" target="_blank">Comprar</a>
+        </div>
+
+        <div class="paquete">
+            <h3>TORRE RITUAL</h3>
+            <div class="precio">$2,380</div>
+            <ul class="lista">
+                <li>16 sesiones</li>
+                <li>Válido en Barre, BARRE SLOW y Replie Galentine´s Love</li>
+                <li>Vigencia 31 días</li>
+            </ul>
+            <a class="boton" href="https://nessty.mx/checkout/69ab19794c511074a7d9561a" target="_blank">Comprar</a>
+        </div>
+
+        <div class="paquete">
+            <h3>METHOD</h3>
+            <div class="precio">$2,600</div>
+            <ul class="lista">
+                <li>20 sesiones</li>
+                <li>Válido en Barre, BARRE SLOW y Replie Galentine´s Love</li>
+                <li>Vigencia 45 días</li>
+            </ul>
+            <a class="boton" href="https://nessty.mx/checkout/69ab19864c511074a7d95980" target="_blank">Comprar</a>
+        </div>
+
+        <div class="paquete">
+            <h3>UNLIMITED</h3>
+            <div class="precio">$2,800</div>
+            <ul class="lista">
+                <li>Sesiones ilimitadas</li>
+                <li>Válido en Barre, BARRE SLOW y Replie Galentine´s Love</li>
+                <li>Vigencia 30 días</li>
+            </ul>
+            <a class="boton" href="https://nessty.mx/checkout/69ab199d4c511074a7d95de8" target="_blank">Comprar</a>
+        </div>
+
+        <div class="paquete">
+            <h3>TRIMESTRAL</h3>
+            <div class="precio">$5,450</div>
+            <ul class="lista">
+                <li>Sesiones ilimitadas</li>
+                <li>Válido en Barre, Replie Galentine´s Love y Sculp & Burn</li>
+                <li>Vigencia 3 meses</li>
+            </ul>
+            <a class="boton" href="https://nessty.mx/checkout/69ab19ad4c511074a7d96163" target="_blank">Comprar</a>
+        </div>
+
+        <div class="paquete">
+            <h3>SEMESTRAL</h3>
+            <div class="precio">$9,700</div>
+            <ul class="lista">
+                <li>Sesiones ilimitadas</li>
+                <li>Válido en Barre, Replie Galentine´s Love y Sculp & Burn</li>
+                <li>Vigencia 6 meses</li>
+            </ul>
+            <a class="boton" href="https://nessty.mx/checkout/69ab19c04c511074a7d966bb" target="_blank">Comprar</a>
+        </div>
+
+        <div class="paquete">
+            <h3>ANUAL</h3>
+            <div class="precio">$18,400</div>
+            <ul class="lista">
+                <li>Sesiones ilimitadas</li>
+                <li>Válido en Barre, Replie Galentine´s Love y Sculp & Burn</li>
+                <li>Vigencia 12 meses</li>
+            </ul>
+            <a class="boton" href="https://nessty.mx/checkout/69ab19cb4c511074a7d968c4" target="_blank">Comprar</a>
+        </div>
+
+    </section>
+
+    <section class="cta-final">
+        <h2>¿No sabes cuál elegir?</h2>
+        <p>
+            Escríbenos y te ayudamos a encontrar el paquete ideal para ti.
+        </p>
+
+        <p style="margin:0 0 22px; color:#800020; font-weight:bold;">WhatsApp: +52 33 1096 8126</p>
+
+        <div class="cta-actions">
+            <a class="btn-principal" href="https://api.whatsapp.com/send?phone=5213310968126&text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20las%20clases" target="_blank">Escríbenos por WhatsApp</a>
+            <a class="btn-secundario" href="https://www.instagram.com/replie_casabarre/" target="_blank">Escríbenos por Instagram</a>
+        </div>
+    </section>
+
+    <p class="creditos">By Mariana Diaz & Oscar Ramirez</p>
+</main>
+
+<script>
+function toggleMenu(){
+    var menu = document.getElementById("menu");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+
+document.addEventListener("click", function(event){
+    var menu = document.getElementById("menu");
+    var button = document.querySelector(".menu-btn");
+
+    if(menu && button && !menu.contains(event.target) && !button.contains(event.target)){
+        menu.style.display = "none";
+    }
+});
+</script>
+
+</body>
+</html>
