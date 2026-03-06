@@ -2,136 +2,552 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Replie Casa Barre</title>
 
 <style>
+:root{
+    --tinto:#800020;
+    --tinto-oscuro:#5e0017;
+    --crema:#f7f3f1;
+    --gris:#ece8e6;
+    --texto:#2d2d2d;
+    --blanco:#ffffff;
+    --sombra:0 10px 30px rgba(0,0,0,0.08);
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
 
 body{
-    text-align:left;
-    font-family:Arial;
     margin:0;
+    font-family:Arial, sans-serif;
+    background:var(--crema);
+    color:var(--texto);
+    padding-top:110px;
+}
+
+a{
+    text-decoration:none;
+}
+
+img{
+    max-width:100%;
+    display:block;
 }
 
 /* HEADER */
 
 .header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(10px);
+    box-shadow:0 2px 12px rgba(0,0,0,0.05);
+}
+
+.header-inner{
+    max-width:1200px;
+    margin:0 auto;
+    padding:16px 20px;
     display:flex;
     justify-content:space-between;
-    align-items:flex-start;
-    padding:20px;
+    align-items:center;
 }
 
 .logo{
-    width:200px;
+    width:180px;
 }
-
-/* MENU */
 
 .menu-container{
     position:relative;
 }
 
 .menu-btn{
-    font-size:16px;
-    padding:10px 15px;
     border:none;
-    background-color:#800020;
-    color:white;
+    background:var(--tinto);
+    color:var(--blanco);
+    padding:12px 18px;
+    border-radius:999px;
     cursor:pointer;
-    border-radius:8px;
+    font-size:15px;
+    font-weight:bold;
+    transition:0.2s;
+}
+
+.menu-btn:hover{
+    background:var(--tinto-oscuro);
 }
 
 .menu{
     display:none;
     position:absolute;
-    top:45px;
+    top:52px;
     right:0;
-    background-color:white;
-    min-width:180px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.2);
-    border-radius:8px;
+    width:220px;
+    background:var(--blanco);
+    border-radius:18px;
+    box-shadow:var(--sombra);
     overflow:hidden;
 }
 
 .menu a{
     display:block;
-    padding:12px;
-    text-decoration:none;
-    color:black;
+    padding:14px 16px;
+    color:var(--texto);
+    font-size:15px;
 }
 
 .menu a:hover{
-    background-color:#f2f2f2;
+    background:#f6f6f6;
 }
 
-/* INSTAGRAM CENTRO */
+/* LAYOUT */
 
-.instagram{
+.container{
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 20px 40px;
+}
+
+/* HERO */
+
+.hero{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:30px;
+    align-items:center;
+    margin-top:10px;
+    margin-bottom:40px;
+}
+
+.hero-card{
+    background:var(--blanco);
+    border-radius:32px;
+    padding:50px;
+    box-shadow:var(--sombra);
+}
+
+.hero-tag{
+    display:inline-block;
+    background:#f3e6ea;
+    color:var(--tinto);
+    padding:8px 14px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:54px;
+    line-height:1.05;
+    margin:0 0 16px;
+    color:var(--tinto);
+}
+
+.hero p{
+    font-size:18px;
+    line-height:1.6;
+    margin:0 0 28px;
+    color:#555;
+}
+
+.hero-actions{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.btn-principal,
+.btn-secundario{
+    display:inline-block;
+    padding:15px 24px;
+    border-radius:999px;
+    font-size:15px;
+    font-weight:bold;
+    transition:0.2s;
+    text-align:center;
+}
+
+.btn-principal{
+    background:var(--tinto);
+    color:var(--blanco);
+}
+
+.btn-principal:hover{
+    background:var(--tinto-oscuro);
+}
+
+.btn-secundario{
+    background:#f3e6ea;
+    color:var(--tinto);
+}
+
+.btn-secundario:hover{
+    background:#ead7dd;
+}
+
+.hero-side{
+    background:linear-gradient(145deg, #8a1732, #5f0018);
+    color:var(--blanco);
+    border-radius:32px;
+    padding:40px;
+    min-height:100%;
+    box-shadow:var(--sombra);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.hero-side h2{
+    margin:0 0 14px;
+    font-size:28px;
+}
+
+.hero-side p{
+    margin:0 0 24px;
+    line-height:1.6;
+    color:rgba(255,255,255,0.9);
+}
+
+.hero-points{
+    margin:0;
+    padding-left:18px;
+}
+
+.hero-points li{
+    margin-bottom:12px;
+    line-height:1.5;
+}
+
+/* SECTION TITLES */
+
+.section{
+    margin-bottom:40px;
+}
+
+.section-title{
+    text-align:center;
+    color:var(--tinto);
+    font-size:30px;
+    margin:0 0 18px;
+    font-weight:bold;
+}
+
+.section-subtitle{
+    text-align:center;
+    color:#666;
+    margin:0 0 24px;
+    font-size:16px;
+}
+
+/* INSTAGRAM */
+
+.instagram-wrap{
+    background:var(--blanco);
+    border-radius:32px 32px 0 0;
+    box-shadow:var(--sombra);
+    overflow:hidden;
+}
+
+.instagram-frame{
     display:flex;
     justify-content:center;
-    margin-top:40px;
 }
 
-/* CREDITOS */
+.instagram-frame iframe{
+    width:100%;
+    max-width:900px;
+    height:760px;
+    border:none;
+    display:block;
+    background:var(--blanco);
+}
+
+/* UBICACION */
+
+.ubicacion{
+    background:var(--tinto);
+    border-radius:0 0 32px 32px;
+    padding:30px;
+    box-shadow:var(--sombra);
+}
+
+.titulo-ubicacion{
+    color:var(--blanco);
+    text-align:center;
+    font-size:28px;
+    font-weight:bold;
+    margin:0 0 22px;
+}
+
+.mapa{
+    display:flex;
+    justify-content:center;
+}
+
+.mapa iframe{
+    width:100%;
+    max-width:900px;
+    height:420px;
+    border:none;
+    border-radius:20px;
+    display:block;
+}
+
+.ubicacion-info{
+    text-align:center;
+    color:rgba(255,255,255,0.9);
+    margin-top:18px;
+    font-size:15px;
+    line-height:1.6;
+}
+
+/* CONTACTO */
+
+.contacto-card{
+    background:var(--blanco);
+    border-radius:32px;
+    box-shadow:var(--sombra);
+    padding:40px;
+    text-align:center;
+}
+
+.contacto-card h3{
+    color:var(--tinto);
+    font-size:28px;
+    margin:0 0 12px;
+}
+
+.contacto-card p{
+    margin:0 0 24px;
+    color:#666;
+    line-height:1.6;
+}
+
+.contacto-actions{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+/* FOOTER */
 
 .creditos{
-    font-size:10px;
-    font-weight:normal;
-    color:#800020;
-    position:fixed;
-    bottom:10px;
-    left:50%;
-    transform:translateX(-50%);
+    text-align:center;
+    color:var(--tinto);
+    font-size:11px;
+    margin:28px 0 10px;
 }
 
+/* RESPONSIVE */
+
+@media (max-width: 980px){
+    .hero{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:44px;
+    }
+
+    .instagram-frame iframe{
+        height:680px;
+    }
+}
+
+@media (max-width: 640px){
+    body{
+        padding-top:95px;
+    }
+
+    .header-inner{
+        padding:14px 16px;
+    }
+
+    .logo{
+        width:145px;
+    }
+
+    .menu-btn{
+        padding:11px 15px;
+        font-size:14px;
+    }
+
+    .hero-card,
+    .hero-side,
+    .contacto-card{
+        padding:28px 22px;
+        border-radius:24px;
+    }
+
+    .hero h1{
+        font-size:36px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .section-title{
+        font-size:24px;
+    }
+
+    .instagram-wrap{
+        border-radius:24px 24px 0 0;
+    }
+
+    .instagram-frame iframe{
+        height:620px;
+    }
+
+    .ubicacion{
+        padding:20px;
+        border-radius:0 0 24px 24px;
+    }
+
+    .titulo-ubicacion{
+        font-size:24px;
+    }
+
+    .mapa iframe{
+        height:320px;
+        border-radius:16px;
+    }
+
+    .contacto-actions,
+    .hero-actions{
+        flex-direction:column;
+    }
+
+    .btn-principal,
+    .btn-secundario{
+        width:100%;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<div class="header">
+<header class="header">
+    <div class="header-inner">
+        <img src="replie logo.png" class="logo" alt="Replie Casa Barre">
 
-<img src="replie logo.png" class="logo">
+        <div class="menu-container">
+            <button class="menu-btn" onclick="toggleMenu()">Menú</button>
 
-<div class="menu-container">
-<button class="menu-btn" onclick="toggleMenu()">Menú</button>
+            <nav class="menu" id="menu">
+                <a href="index.html">Inicio</a>
+                <a href="https://nessty.mx/@replie-casa-barre/calle-independencia-387?day=2026-03-06" target="_blank">Clases</a>
+                <a href="paquetes.html">Paquetes</a>
+                <a href="https://api.whatsapp.com/send?phone=5213310968126&text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20las%20clases" target="_blank">Contacto</a>
+            </nav>
+        </div>
+    </div>
+</header>
 
-<div class="menu" id="menu">
-<a href="#">Inicio</a>
-<a href="https://nessty.mx/@replie-casa-barre/calle-independencia-387?day=2026-03-06" target="_blank">Clases</a>
-<a href="#">Contacto</a>
-</div>
+<main class="container">
 
-</div>
-</div>
+    <section class="hero">
+        <div class="hero-card">
+            <div class="hero-tag">REPLIE CASA BARRE</div>
+            <h1>Fuerza, elegancia y movimiento.</h1>
+            <p>
+                Descubre una experiencia de barre pensada para conectar cuerpo, energía y estilo de vida.
+                Reserva tu clase o encuentra el paquete ideal para ti.
+            </p>
 
-<!-- INSTAGRAM EN EL CENTRO -->
+            <div class="hero-actions">
+                <a class="btn-principal" href="https://nessty.mx/@replie-casa-barre/calle-independencia-387?day=2026-03-06" target="_blank">Reservar clase</a>
+                <a class="btn-secundario" href="paquetes.html">Ver paquetes</a>
+            </div>
+        </div>
 
-<div class="instagram">
-<iframe src="https://www.instagram.com/replie_casabarre/embed"
-width="800"
-height="1000"
-frameborder="0">
-</iframe>
-</div>
+        <div class="hero-side">
+            <h2>Un espacio para moverte contigo.</h2>
+            <p>
+                En Replie Casa Barre buscamos que cada clase se sienta como una experiencia cuidada, femenina y poderosa.
+            </p>
 
-<!-- CREDITOS -->
+            <ul class="hero-points">
+                <li>Clases con enfoque boutique</li>
+                <li>Opciones para comenzar o avanzar</li>
+                <li>Ubicación fácil de encontrar</li>
+            </ul>
+        </div>
+    </section>
 
-<p class="creditos">
-By Mariana Diaz & Oscar Ramirez
-</p>
+    <section class="section">
+        <h2 class="section-title">Síguenos en Instagram</h2>
+        <p class="section-subtitle">Conoce nuestras clases, energía y comunidad.</p>
+
+        <div class="instagram-wrap">
+            <div class="instagram-frame">
+                <iframe src="https://www.instagram.com/replie_casabarre/embed"></iframe>
+            </div>
+
+            <div class="ubicacion">
+                <h3 class="titulo-ubicacion">UBICACIÓN</h3>
+
+                <div class="mapa">
+                    <iframe
+                        src="https://www.google.com/maps?q=20.6037066,-103.4099213&hl=es&z=16&output=embed"
+                        allowfullscreen=""
+                        loading="lazy">
+                    </iframe>
+                </div>
+
+                <div class="ubicacion-info">
+                    Calle Independencia 387 · Guadalajara, Jalisco
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="contacto-card">
+            <h3>¿Tienes dudas?</h3>
+            <p>
+                Escríbenos y te ayudamos a elegir la mejor opción para comenzar en Replie Casa Barre.
+            </p>
+
+            <p style="margin:0 0 24px; color:#800020; font-weight:bold;">WhatsApp: +52 33 1096 8126</p>
+
+            <div class="contacto-actions">
+                <a class="btn-principal" href="https://api.whatsapp.com/send?phone=5213310968126&text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20las%20clases" target="_blank">Escríbenos por WhatsApp</a>
+                <a class="btn-secundario" href="https://www.instagram.com/replie_casabarre/" target="_blank">Escríbenos por Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <p class="creditos">By Mariana Diaz & Oscar Ramirez</p>
+</main>
 
 <script>
-
-function toggleMenu() {
+function toggleMenu(){
     var menu = document.getElementById("menu");
-    if (menu.style.display === "block") {
-        menu.style.display = "none";
-    } else {
-        menu.style.display = "block";
-    }
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
 }
 
+document.addEventListener("click", function(event){
+    var menu = document.getElementById("menu");
+    var button = document.querySelector(".menu-btn");
+
+    if(menu && button && !menu.contains(event.target) && !button.contains(event.target)){
+        menu.style.display = "none";
+    }
+});
 </script>
 
 </body>
