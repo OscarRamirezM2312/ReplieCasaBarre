@@ -7,26 +7,132 @@
 <style>
 
 body{
-    text-align:center;
+    text-align:left;
     font-family:Arial;
-    margin-top:100px;
+    margin:0;
+}
+
+/* HEADER */
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    padding:20px;
 }
 
 .logo{
     width:200px;
 }
 
-</style>
+/* MENU */
 
+.menu-container{
+    position:relative;
+}
+
+.menu-btn{
+    font-size:16px;
+    padding:10px 15px;
+    border:none;
+    background-color:#800020;
+    color:white;
+    cursor:pointer;
+    border-radius:8px;
+}
+
+.menu{
+    display:none;
+    position:absolute;
+    top:45px;
+    right:0;
+    background-color:white;
+    min-width:180px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    border-radius:8px;
+    overflow:hidden;
+}
+
+.menu a{
+    display:block;
+    padding:12px;
+    text-decoration:none;
+    color:black;
+}
+
+.menu a:hover{
+    background-color:#f2f2f2;
+}
+
+/* INSTAGRAM CENTRO */
+
+.instagram{
+    display:flex;
+    justify-content:center;
+    margin-top:40px;
+}
+
+/* CREDITOS */
+
+.creditos{
+    font-size:10px;
+    font-weight:normal;
+    color:#800020;
+    position:fixed;
+    bottom:10px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+</style>
 </head>
 
 <body>
 
+<div class="header">
+
 <img src="replie logo.png" class="logo">
 
-<h1>By Mariana Diaz & Oscar Ramirez</h1>
+<div class="menu-container">
+<button class="menu-btn" onclick="toggleMenu()">Menú</button>
+
+<div class="menu" id="menu">
+<a href="#">Inicio</a>
+<a href="https://nessty.mx/@replie-casa-barre/calle-independencia-387?day=2026-03-06" target="_blank">Clases</a>
+<a href="#">Contacto</a>
+</div>
+
+</div>
+</div>
+
+<!-- INSTAGRAM EN EL CENTRO -->
+
+<div class="instagram">
+<iframe src="https://www.instagram.com/replie_casabarre/embed"
+width="800"
+height="1000"
+frameborder="0">
+</iframe>
+</div>
+
+<!-- CREDITOS -->
+
+<p class="creditos">
+By Mariana Diaz & Oscar Ramirez
+</p>
+
+<script>
+
+function toggleMenu() {
+    var menu = document.getElementById("menu");
+    if (menu.style.display === "block") {
+        menu.style.display = "none";
+    } else {
+        menu.style.display = "block";
+    }
+}
+
+</script>
 
 </body>
 </html>
-
-
